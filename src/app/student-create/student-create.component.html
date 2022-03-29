@@ -1,0 +1,107 @@
+<div class="container py-3">
+    <div class="col-md-6 text-left m-5">
+        <h2>Student Management</h2>
+    </div>
+    <br>
+    <div class="text-center">
+        <button type="button" class="btn btn-outline-success" (click)="onAddStudent()">Add Student</button>
+    </div>
+  <hr>
+  <div class="nav-bar">
+    <input class="form-control" type="text" name="rollno" [(ngModel)] ="rollno" (ngModelChange)="Search()" placeholder="Enter RollNo to search">
+  </div>
+  <hr>
+  <div class="row">
+      <div class="col-md-4" *ngFor="let item of students">
+          <div class="card mb-3">
+              <div class="card-body">
+                  <h5 class="card-title">{{item.rollno}}</h5>
+                  <h2 class="card-subtitle mb-2 text-muted">{{item.name}}</h2>
+                  <h2 class="card-subtitle mb-2 text-muted">{{item.dept}}</h2>
+                  <h5 class="card-title">{{item.year}}</h5>
+                  <h5 class="card-title">{{item.sec}}</h5>
+                  <h5 class="card-title">{{item.phno}}</h5>
+                  <hr>
+                  <button type="button" class="btn btn-sm btn-outline-primary " (click)="onEditStudent(item)">Edit</button>
+                  &nbsp;
+                  <button type="button" class="btn btn-sm btn-outline-danger " (click)="onDeleteStudent(item._id)">Delete</button>
+                  <hr>
+                  <button type="button" class="btn btn-sm btn-outline-success " (click)="onAcademicPerformance()">Academic Status</button>
+                  &nbsp;
+                  <button type="button" class="btn btn-sm btn-outline-info " (click)="onPlacementStatus()">Placement Status</button>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+<div class="modal fade show" [class.show]="showModal">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title">{{editMode? 'Update' :'Add'}} Student</h5>
+              <button (click)="onCloseModal()" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+              </button>
+          </div>
+          <form [formGroup]="stuForm" (ngSubmit)="onStuSubmit()">
+              <div class="modal-body">
+                  <div class="form-group">
+                    <label>Enter Rollno</label>
+                    <input type="text" class="form-control" formControlName="rollno">
+                    <small *ngIf="!stuForm.get('rollno').valid && stuForm.get('rollno').touched" class="form-text text-danger">Please Enter Rollno.</small>
+                  </div>
+
+                  <div class="form-group">
+                    <label>Enter Name</label>
+                    <input type="text" class="form-control" formControlName="name">
+                    <small *ngIf="!stuForm.get('name').valid && stuForm.get('name').touched" class="form-text text-danger">Please Enter Name.</small>
+                  </div>
+
+                  <div class="form-group">
+                      <label>Select Department</label>
+                      <select class="custom-select" formControlName="dept">
+                          <option value="CSE">CSE</option>
+                          <option value="ECE">ECE</option>
+                          <option value="EEE">EEE</option>
+                          <option value="MECH">MECH</option>
+                          <option value="CE">CE</option>
+                          <option value="IT">IT</option>
+                      </select>
+                  </div>
+
+                  <div class="form-group">
+                      <label>Select Year</label>
+                      <select class="custom-select" formControlName="year">
+                          <option value="I">I</option>
+                          <option value="II">II</option>
+                          <option value="III">III</option>
+                          <option value="IV">IV</option>
+                      </select>
+                  </div>
+
+                  <div class="form-group">
+                    <label>Select Section</label>
+                    <select class="custom-select" formControlName="sec">
+                        <option value="A">A</option>
+                        <option value="B">B</option>
+                        <option value="C">C</option>
+                        <option value="D">D</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                  <label>Enter PhNo</label>
+                  <input type="text" class="form-control" formControlName="phno">
+                  <small *ngIf="!stuForm.get('phno').valid && stuForm.get('phno').touched" class="form-text text-danger">Please Enter Phone Number.</small>
+                </div>
+
+              </div>
+              <div class="modal-footer">
+                  <button type="button" (click)="onCloseModal()" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="submit" class="btn btn-primary">{{editMode? 'Update Student' :'Add Student'}}</button>
+              </div>
+          </form>
+      </div>
+  </div>
+</div>
