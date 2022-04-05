@@ -9,6 +9,7 @@ const path = require("path");
 
 //app.use('/students', routes);
 //app.set("port", 3000);
+//app.use(cors());
 const server = http.createServer(app);
 //server.on("error", onError);
 //server.on("listening", onListening);

@@ -9,8 +9,8 @@ const routes = require('./routes/students');
 
 const app = express();
 app.use(express.json());
-app.use(cors({ origin: 'htpp://localhost:4200' }));
-
+//app.use(cors({ origin: 'htpp://localhost:4200' }));
+app.use(cors());
 app.listen(3000, () => console.log("Server Started at port: 3000"));
 
 app.use('/students', routes);
