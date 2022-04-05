@@ -16,7 +16,9 @@ export class StudentCreateComponent implements OnInit {
   showModal:boolean = false;
   editMode:boolean = false;
   students: Student[];
-  rollno: any;
+  rollno: String;
+  name: String;
+  result: String;
 
   constructor(private fb: FormBuilder, private stuService: StudentService) { }
 
@@ -34,12 +36,22 @@ export class StudentCreateComponent implements OnInit {
     })
   }
 
-  Search(){
+  SearchByRoll(){
     if(this.rollno == ""){
       this.ngOnInit();
     }else{
       this.students = this.students.filter(res => {
-        return res.rollno.toLocaleLowerCase().match(this.rollno.toLocaleLowerCase());
+          return res.rollno.toLocaleLowerCase().match(this.rollno.toLocaleLowerCase());
+      })
+    }
+  }
+
+  SearchByName(){
+    if(this.name == ""){
+      this.ngOnInit();
+    }else{
+      this.students = this.students.filter(res => {
+        return res.name.toLocaleLowerCase().match(this.name.toLocaleLowerCase());
       })
     }
   }
@@ -87,6 +99,9 @@ export class StudentCreateComponent implements OnInit {
             this.onCloseModal();
           }, err => console.log(err))
       }
+    }
+    else{
+      console.log("Student already exits!");
     }
   }
 

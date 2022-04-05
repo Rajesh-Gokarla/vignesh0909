@@ -1,20 +1,27 @@
-<div class="container py-3">
-    <div class="col-md-6 text-left m-5">
+<div class="container py-3 has-bg-img">
+    <div class="col-md-6 text-left m-2">
         <h2>Student Management</h2>
     </div>
     <br>
-    <div class="text-center">
-        <button type="button" class="btn btn-outline-success" (click)="onAddStudent()">Add Student</button>
-    </div>
   <hr>
-  <div class="nav-bar">
-    <input class="form-control" type="text" name="rollno" [(ngModel)] ="rollno" (ngModelChange)="Search()" placeholder="Enter RollNo to search">
+
+  <div class="row justify-content-center">
+    <div class="col-md-4 mb-3">
+      <button type="button" class="btn btn-outline-success" (click)="onAddStudent()">+Add Student</button>
+    </div>
+    <div class="col-md-4 mb-3">
+      <input class="form-control" type="text" name="rollno" [(ngModel)] ="rollno" (ngModelChange)="SearchByRoll()" placeholder="Enter RollNo to search">
+    </div>
+    <div class="col-md-4 mb-3">
+      <input class="form-control" type="text" name="name" [(ngModel)] ="name" (ngModelChange)="SearchByName()" placeholder="Enter Name to search">
+    </div>
   </div>
+
   <hr>
   <div class="row">
       <div class="col-md-4" *ngFor="let item of students">
           <div class="card mb-3">
-              <div class="card-body">
+              <div class="card-body bg-light">
                   <h5 class="card-title">{{item.rollno}}</h5>
                   <h2 class="card-subtitle mb-2 text-muted">{{item.name}}</h2>
                   <h2 class="card-subtitle mb-2 text-muted">{{item.dept}}</h2>
@@ -26,9 +33,9 @@
                   &nbsp;
                   <button type="button" class="btn btn-sm btn-outline-danger " (click)="onDeleteStudent(item._id)">Delete</button>
                   <hr>
-                  <button type="button" class="btn btn-sm btn-outline-success " (click)="onAcademicPerformance()">Academic Status</button>
+                  <a href="academic-details.component.html" class="btn btn-sm btn-outline-success">Academic Status</a>
                   &nbsp;
-                  <button type="button" class="btn btn-sm btn-outline-info " (click)="onPlacementStatus()">Placement Status</button>
+                  <a href="" class="btn btn-sm btn-outline-dark">Placement Status</a>
               </div>
           </div>
       </div>
@@ -47,9 +54,9 @@
           <form [formGroup]="stuForm" (ngSubmit)="onStuSubmit()">
               <div class="modal-body">
                   <div class="form-group">
-                    <label>Enter Rollno</label>
-                    <input type="text" class="form-control" formControlName="rollno">
-                    <small *ngIf="!stuForm.get('rollno').valid && stuForm.get('rollno').touched" class="form-text text-danger">Please Enter Rollno.</small>
+                    <label for="validationServer01">Enter Rollno</label>
+                    <input type="text" class="form-control" id="validationServer01" formControlName="rollno" required>
+                    <small *ngIf="!stuForm.get('rollno').valid && stuForm.get('rollno').touched" class="form-text text-danger is-valid">Please Enter Rollno.</small>
                   </div>
 
                   <div class="form-group">
