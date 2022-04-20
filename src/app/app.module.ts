@@ -10,9 +10,9 @@ import { AngularMaterialModule } from "./angular-material.module";
 import { StudentCreateComponent } from './student-create/student-create.component';
 import { OrderModule } from 'ngx-order-pipe';
 import { FilterPipeModule } from 'ngx-filter-pipe';
-import {NgxPaginationModule} from 'ngx-pagination';
+import { NgxPaginationModule } from 'ngx-pagination';
 import { PlacementDetailsComponent } from './placement-details/placement-details/placement-details.component';
-import { MatTableModule } from '@angular/material/table'
+import { AcademicDetailsComponent } from "./academic-details/academic-details.component";
 
 @NgModule({
   declarations: [
@@ -20,6 +20,7 @@ import { MatTableModule } from '@angular/material/table'
     HeaderComponent,
     StudentCreateComponent,
     PlacementDetailsComponent,
+    AcademicDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +31,6 @@ import { MatTableModule } from '@angular/material/table'
     AngularMaterialModule,
     OrderModule,
     NgxPaginationModule,
-    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]
