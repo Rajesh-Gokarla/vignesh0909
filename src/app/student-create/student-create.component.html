@@ -28,14 +28,17 @@
                   <h5 class="card-title">{{item.year}}</h5>
                   <h5 class="card-title">{{item.sec}}</h5>
                   <h5 class="card-title">{{item.phno}}</h5>
+                  <button mat-icon-button disabled aria-label="Example icon button with a open in new tab icon">
+                    <mat-icon>open_in_new</mat-icon>
+                  </button>
                   <hr>
                   <button type="button" class="btn btn-sm btn-outline-primary " (click)="onEditStudent(item)">Edit</button>
                   &nbsp;
                   <button type="button" class="btn btn-sm btn-outline-danger " (click)="onDeleteStudent(item._id)">Delete</button>
                   <hr>
-                  <a routerLink="/academic-profile">Academic Profile</a>
+                  <a routerLink="/academic-profile" mat-stroked-button color="accent">Academic Profile</a>
                   &nbsp;
-                  <a href="" class="btn btn-sm btn-outline-dark">Placement Profile</a>
+                  <a routerLink="/placement-profile" mat-stroked-button color="accent">Placement Profile</a>
               </div>
           </div>
       </div>

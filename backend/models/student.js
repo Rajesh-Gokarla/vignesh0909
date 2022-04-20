@@ -11,6 +11,7 @@ const Student = mongoose.model('Student', {
   //creator: { type: mongoose.Schema.Types.ObjectId, ref: "User", required: true }
   grades: [{
     subject: String,
+    sem: Number,
     grade: String,
     credits: Number,
     sgpa: Number,

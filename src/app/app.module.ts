@@ -11,12 +11,15 @@ import { StudentCreateComponent } from './student-create/student-create.componen
 import { OrderModule } from 'ngx-order-pipe';
 import { FilterPipeModule } from 'ngx-filter-pipe';
 import {NgxPaginationModule} from 'ngx-pagination';
+import { PlacementDetailsComponent } from './placement-details/placement-details/placement-details.component';
+import { MatTableModule } from '@angular/material/table'
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     StudentCreateComponent,
+    PlacementDetailsComponent,
   ],
   imports: [
     BrowserModule,
@@ -26,7 +29,8 @@ import {NgxPaginationModule} from 'ngx-pagination';
     FilterPipeModule,
     AngularMaterialModule,
     OrderModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]

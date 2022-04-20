@@ -9,7 +9,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatDialogModule } from '@angular/material/dialog';
 import { FormsModule }   from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
-import { MatTableModule } from '@angular/material/table'
+import { MatTableModule } from '@angular/material/table';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   exports: [
@@ -23,7 +24,8 @@ import { MatTableModule } from '@angular/material/table'
     MatDialogModule,
     FormsModule,
     ReactiveFormsModule,
-    MatTableModule
+    MatTableModule,
+    MatIconModule
   ]
 })
 export class AngularMaterialModule {}

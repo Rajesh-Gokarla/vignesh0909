@@ -1,7 +1,6 @@
 import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit, NgZone, Injectable } from '@angular/core';
-import { Student } from '../model/student';
 import { StudentService } from '../student.service';
 
 export interface PeriodicElement {
