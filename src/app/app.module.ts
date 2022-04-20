@@ -11,14 +11,12 @@ import { StudentCreateComponent } from './student-create/student-create.componen
 import { OrderModule } from 'ngx-order-pipe';
 import { FilterPipeModule } from 'ngx-filter-pipe';
 import {NgxPaginationModule} from 'ngx-pagination';
-import { AcademicDetailsComponent } from './academic-details/academic-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     StudentCreateComponent,
-    AcademicDetailsComponent,
   ],
   imports: [
     BrowserModule,

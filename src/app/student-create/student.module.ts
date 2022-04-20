@@ -4,16 +4,19 @@ import { FormsModule } from "@angular/forms";
 
 import { AuthRoutingModule } from "../auth/auth-routing.module";
 import { AngularMaterialModule } from "../angular-material.module";
+import { StudentRoutingModule, RoutingComponents } from "./student-routing.module";
+import { StudentCreateComponent } from "./student-create.component";
 
 @NgModule({
   declarations: [
-
+    RoutingComponents
   ],
   imports: [
     CommonModule,
     FormsModule,
     AuthRoutingModule,
-    AngularMaterialModule
+    AngularMaterialModule,
+    StudentRoutingModule,
   ]
 })
 export class StudentModule {}

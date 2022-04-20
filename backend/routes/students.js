@@ -10,8 +10,11 @@ router.post('/', (req, res) => {
     name: req.body.name,
     dept: req.body.dept,
     year: req.body.year,
+    sem: req.body.sem,
     sec: req.body.sec,
-    phno: req.body.phno
+    phno: req.body.phno,
+    grades: req.body.grades,
+    placements: req.body.placements
   });
 
   stu.save((err,doc) => {
@@ -87,4 +90,21 @@ router.delete('/:id', (req, res) => {
   }
 })
 
+
+
+//get grades
+router.get('/:id/grades', (req, res) => {
+  if(ObjectId.isValid(req.params.id)){
+    Student.findById(req.params.id, (err, doc) => {
+      if(err){
+        console.log('Error in GET student by Id ' + err);
+      } else {
+        //console.log(doc.grades);
+        res.send(doc.grades);
+      }
+    })
+  } else {
+    return res.status(400).send(`No record found with Id ${req.params.id}`);
+  }
+})
 module.exports = router;

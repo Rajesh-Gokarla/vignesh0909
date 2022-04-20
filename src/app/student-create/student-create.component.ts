@@ -1,9 +1,9 @@
 import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit, NgZone } from '@angular/core';
-import { ApiService } from '../service/api.service';
 import { Student } from '../model/student';
 import { StudentService } from '../student.service';
+import { timer } from 'rxjs';
 
 @Component({
   selector: 'app-student-create',
@@ -18,7 +18,6 @@ export class StudentCreateComponent implements OnInit {
   students: Student[];
   rollno: String;
   name: String;
-  result: String;
 
   constructor(private fb: FormBuilder, private stuService: StudentService) { }
 
@@ -120,4 +119,5 @@ export class StudentCreateComponent implements OnInit {
   onPlacementStatus(){
 
   }
+
 }
