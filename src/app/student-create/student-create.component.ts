@@ -2,7 +2,7 @@ import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit, NgZone } from '@angular/core';
 import { Student } from '../model/student';
-import { StudentService } from '../student.service';
+import { StudentService } from './student.service';
 import { timer } from 'rxjs';
 
 @Component({
@@ -27,9 +27,9 @@ export class StudentCreateComponent implements OnInit {
       _id: [''],
       rollno: ['Ex. XXBQXA0XXX', Validators.required],
       name: ['Ex. Someone', Validators.required],
-      position: ['Ex. Full Stack Developer', Validators.required],
       dept: ['CSE'],
       year: ['I'],
+      sem: ['1'],
       sec: ['A'],
       phno: ['9898989898']
     })
@@ -113,10 +113,10 @@ export class StudentCreateComponent implements OnInit {
     this.showModal = true;
   }
 
-  onAcademicPerformance(){
-
+  onAddAcademicProfile(){
+    this.showModal = true;
   }
-  onPlacementStatus(){
+  onAddPlacementProfile(){
 
   }
 

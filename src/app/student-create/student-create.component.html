@@ -21,24 +21,27 @@
   <div class="row">
       <div class="col-md-4" *ngFor="let item of students">
           <div class="card mb-3">
-              <div class="card-body bg-light">
+              <div class="card-body bg-light text-center">
                   <h5 class="card-title">{{item.rollno}}</h5>
                   <h2 class="card-subtitle mb-2 text-muted">{{item.name}}</h2>
                   <h2 class="card-subtitle mb-2 text-muted">{{item.dept}}</h2>
                   <h5 class="card-title">{{item.year}}</h5>
                   <h5 class="card-title">{{item.sec}}</h5>
+                  <h5 class="card-title">{{item.sem}}</h5>
                   <h5 class="card-title">{{item.phno}}</h5>
-                  <button mat-icon-button disabled aria-label="Example icon button with a open in new tab icon">
-                    <mat-icon>open_in_new</mat-icon>
-                  </button>
+                  <h5 class="card-title">{{students[0].grades[0]}}</h5>
+                  <hr>
+                  <button type="button" class="btn btn-sm btn-outline-primary " (click)="onAddAcademicProfile()">Add Academic Details</button>
+                  &nbsp;
+                  <button type="button" class="btn btn-sm btn-outline-danger " (click)="onAddPlacementProfile()">Add Placement Details</button>
                   <hr>
                   <button type="button" class="btn btn-sm btn-outline-primary " (click)="onEditStudent(item)">Edit</button>
                   &nbsp;
                   <button type="button" class="btn btn-sm btn-outline-danger " (click)="onDeleteStudent(item._id)">Delete</button>
                   <hr>
-                  <a routerLink="/academic-profile" mat-stroked-button color="accent">Academic Profile</a>
+                  <a routerLink="/academic-profile" mat-stroked-button color="primary">Academic Profile <mat-icon>open_in_new</mat-icon> </a>
                   &nbsp;
-                  <a routerLink="/placement-profile" mat-stroked-button color="accent">Placement Profile</a>
+                  <a routerLink="/placement-profile" mat-stroked-button color="primary">Placement Profile <mat-icon>open_in_new</mat-icon> </a>
               </div>
           </div>
       </div>
@@ -91,6 +94,20 @@
                   </div>
 
                   <div class="form-group">
+                    <label>Select Sem</label>
+                    <select class="custom-select" formControlName="sec">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="2">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                    </select>
+                  </div>
+
+                  <div class="form-group">
                     <label>Select Section</label>
                     <select class="custom-select" formControlName="sec">
                         <option value="A">A</option>
@@ -98,7 +115,7 @@
                         <option value="C">C</option>
                         <option value="D">D</option>
                     </select>
-                </div>
+                  </div>
 
                 <div class="form-group">
                   <label>Enter PhNo</label>
