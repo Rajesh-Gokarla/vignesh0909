@@ -14,6 +14,7 @@ import { timer } from 'rxjs';
 export class StudentCreateComponent implements OnInit {
   stuForm : FormGroup;
   showModal:boolean = false;
+  showModal2:boolean = false;
   editMode:boolean = false;
   students: Student[];
   rollno: String;
@@ -24,7 +25,7 @@ export class StudentCreateComponent implements OnInit {
   ngOnInit(): void {
     this.getStudents();
     this.stuForm = this.fb.group({
-      _id: [''],
+      _id: [''],  
       rollno: ['Ex. XXBQXA0XXX', Validators.required],
       name: ['Ex. Someone', Validators.required],
       dept: ['CSE'],
@@ -106,6 +107,7 @@ export class StudentCreateComponent implements OnInit {
 
   onCloseModal(){
     this.showModal = false;
+    this.showModal2 = false;
     this.editMode = false;
   }
 
@@ -114,7 +116,7 @@ export class StudentCreateComponent implements OnInit {
   }
 
   onAddAcademicProfile(){
-    this.showModal = true;
+    this.showModal2 = true; 
   }
   onAddPlacementProfile(){
 
